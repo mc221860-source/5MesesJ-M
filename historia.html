@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra historia ❤️</title>
+
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: #5a3542;
+        background:
+            radial-gradient(circle at 20% 20%, #ffdce8 0%, transparent 30%),
+            radial-gradient(circle at 80% 10%, #dff5ff 0%, transparent 30%),
+            radial-gradient(circle at 50% 90%, #fff0c9 0%, transparent 35%),
+            linear-gradient(135deg, #fff8fb, #eefaff, #fff4f7);
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* CORAZONES */
+
+    .corazon {
+        position: fixed;
+        bottom: -50px;
+        font-size: 25px;
+        opacity: 0.65;
+        animation: subir 10s linear infinite;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .c1 {
+        left: 8%;
+        animation-delay: 0s;
+    }
+
+    .c2 {
+        left: 22%;
+        animation-delay: 2s;
+    }
+
+    .c3 {
+        left: 40%;
+        animation-delay: 4s;
+    }
+
+    .c4 {
+        left: 60%;
+        animation-delay: 1s;
+    }
+
+    .c5 {
+        left: 78%;
+        animation-delay: 3s;
+    }
+
+    .c6 {
+        left: 92%;
+        animation-delay: 5s;
+    }
+
+    @keyframes subir {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 0.7;
+        }
+
+        100% {
+            transform: translateY(-110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .contenedor {
+        position: relative;
+        z-index: 1;
+        width: 92%;
+        max-width: 1000px;
+        margin: auto;
+        padding: 40px 0;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #b84f70;
+        margin-bottom: 10px;
+    }
+
+    .subtitulo {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 35px;
+    }
+
+    /* MENÚ PRINCIPAL */
+
+    .inicio {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 20px;
+    }
+
+    .opcion {
+        border: none;
+        padding: 30px 20px;
+        min-height: 110px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.82);
+        color: #693f4d;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 8px 20px rgba(120, 70, 90, 0.12);
+        transition: 0.3s;
+    }
+
+    .opcion:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 12px 25px rgba(120, 70, 90, 0.20);
+    }
+
+    /* BOTÓN VOLVER AL INDEX */
+
+    .volver-index {
+        margin-top: 30px;
+        border: none;
+        padding: 14px 30px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #b84f70, #ff91ad);
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 6px 15px rgba(184, 79, 112, 0.25);
+        transition: 0.3s;
+    }
+
+    .volver-index:hover {
+        transform: scale(1.06);
+    }
+
+    /* SECCIONES */
+
+    .seccion {
+        display: none;
+        animation: aparecer 0.5s ease;
+    }
+
+    .seccion.activa {
+        display: block;
+    }
+
+    @keyframes aparecer {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .caja {
+        background: rgba(255, 255, 255, 0.88);
+        padding: 30px;
+        border-radius: 25px;
+        margin-bottom: 25px;
+        box-shadow: 0 10px 25px rgba(120, 70, 90, 0.12);
+        text-align: center;
+    }
+
+    .caja h2 {
+        color: #b84f70;
+    }
+
+    .volver-historia {
+        border: none;
+        padding: 13px 25px;
+        border-radius: 25px;
+        background: #b84f70;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: 0.3s;
+    }
+
+    .volver-historia:hover {
+        transform: scale(1.05);
+    }
+
+    /* CONTADOR */
+
+    .contador {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .tiempo {
+        background: linear-gradient(135deg, #ffe1eb, #fff3f7);
+        padding: 18px 8px;
+        border-radius: 18px;
+    }
+
+    .tiempo span {
+        display: block;
+        font-size: 28px;
+        font-weight: bold;
+        color: #b84f70;
+    }
+
+    .tiempo small {
+        font-size: 13px;
+    }
+
+    /* IMÁGENES */
+
+    .imagen-cielo,
+    .imagen-futuro {
+        width: 90%;
+        max-width: 600px;
+        border-radius: 22px;
+        cursor: pointer;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        transition: 0.3s;
+    }
+
+    .imagen-cielo:hover,
+    .imagen-futuro:hover {
+        transform: scale(1.02);
+    }
+
+    /* RAZONES Y COSAS QUE AMO */
+
+    .razones {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .razon {
+        background: linear-gradient(135deg, #fff1f5, #fffaf0);
+        padding: 20px;
+        border-radius: 20px;
+        transition: 0.3s;
+    }
+
+    .razon:hover {
+        transform: translateY(-5px);
+    }
+
+    /* MENSAJE ALEATORIO */
+
+    #mensaje {
+        min-height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        font-size: 19px;
+        color: #a13e62;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .boton-mensaje {
+        border: none;
+        padding: 15px 28px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #ff7096, #d95f9d);
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .boton-mensaje:hover {
+        transform: scale(1.07);
+    }
+
+    /* BOTÓN FUTURO */
+
+    .sorpresa-boton {
+        border: none;
+        padding: 16px 30px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #ffb347, #ff7b7b);
+        color: white;
+        font-size: 17px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    /* MODALES */
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 20;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(40, 20, 30, 0.75);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .modal.activo {
+        display: flex;
+    }
+
+    .modal-contenido {
+        background: white;
+        padding: 20px;
+        border-radius: 25px;
+        max-width: 700px;
+        width: 95%;
+        text-align: center;
+        position: relative;
+    }
+
+    .modal-contenido img {
+        max-width: 100%;
+        max-height: 70vh;
+        border-radius: 18px;
+    }
+
+    .cerrar {
+        position: absolute;
+        top: 8px;
+        right: 15px;
+        font-size: 30px;
+        cursor: pointer;
+        color: #b84f70;
+        font-weight: bold;
+    }
+
+    a {
+        color: #b84f70;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+
+        .menu-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .contador {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .razones {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 500px) {
+
+        h1 {
+            font-size: 32px;
+        }
+
+        .menu-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .caja {
+            padding: 22px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<div class="corazon c1">❤️</div>
+<div class="corazon c2">💕</div>
+<div class="corazon c3">💗</div>
+<div class="corazon c4">💖</div>
+<div class="corazon c5">💞</div>
+<div class="corazon c6">❤️</div>
+
+<div class="contenedor">
+
+    <!-- MENÚ PRINCIPAL -->
+
+    <main class="inicio" id="menuHistoria">
+
+        <h1>Nuestra historia ❤️</h1>
+
+        <p class="subtitulo">
+            Desde aquel 7 de mayo de 2026, alrededor de las 4:00 de la tarde,
+            comenzó algo muy especial para nosotros. 💕
+        </p>
+
+        <div class="menu-grid">
+
+            <button class="opcion" onclick="abrirSeccion('tiempo')">
+                ⏳ Nuestro tiempo juntos
+            </button>
+
+            <button class="opcion" onclick="abrirSeccion('cielo')">
+                🌌 El cielo de nuestro día
+            </button>
+
+            <button class="opcion" onclick="abrirSeccion('comienzo')">
+                💕 El comienzo
+            </button>
+
+            <button class="opcion" onclick="abrirSeccion('razones')">
+                ❤️ Por qué me enamoré de ti
+            </button>
+
+            <button class="opcion" onclick="abrirSeccion('mensajes')">
+                💌 Mensajes para ti
+            </button>
+
+            <button class="opcion" onclick="abrirSeccion('nosotros')">
+                🥰 Cosas que amo de nosotros
+            </button>
+
+            <button class="opcion" onclick="abrirSeccion('futuro')">
+                👶 Un pedacito de nuestro futuro
+            </button>
+
+            <button class="opcion" onclick="abrirSeccion('cancion')">
+                🎵 Nuestra canción
+            </button>
+
+        </div>
+
+        <button class="volver-index" onclick="window.location.href='index.html'">
+            🏠 Volver al inicio
+        </button>
+
+    </main>
+
+
+    <!-- TIEMPO -->
+
+    <section class="seccion" id="tiempo">
+
+        <div class="caja">
+
+            <h2>⏳ Llevamos juntos</h2>
+
+            <p>
+                Cada segundo contigo cuenta. ❤️
+            </p>
+
+            <div class="contador">
+
+                <div class="tiempo">
+                    <span id="dias">0</span>
+                    <small>Días</small>
+                </div>
+
+                <div class="tiempo">
+                    <span id="horas">0</span>
+                    <small>Horas</small>
+                </div>
+
+                <div class="tiempo">
+                    <span id="minutos">0</span>
+                    <small>Minutos</small>
+                </div>
+
+                <div class="tiempo">
+                    <span id="segundos">0</span>
+                    <small>Segundos</small>
+                </div>
+
+            </div>
+
+            <button class="volver-historia" onclick="volverHistoria()">
+                💕 Volver a Nuestra historia
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- CIELO -->
+
+    <section class="seccion" id="cielo">
+
+        <div class="caja">
+
+            <h2>🌌 El cielo de nuestro día</h2>
+
+            <p>
+                Este es el cielo de aquel día en que comenzó nuestra historia. ❤️
+            </p>
+
+            <img
+                src="./Imagen/Cielo.jpg"
+                class="imagen-cielo"
+                id="fotoCielo"
+                alt="El cielo de nuestro día"
+            >
+
+            <br>
+
+            <button class="volver-historia" onclick="volverHistoria()">
+                💕 Volver a Nuestra historia
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMIENZO -->
+
+    <section class="seccion" id="comienzo">
+
+        <div class="caja">
+
+            <h2>💕 El comienzo</h2>
+
+            <p>
+                Todo comenzó el <strong>7 de mayo de 2026</strong>,
+                alrededor de las <strong>4:00 de la tarde</strong>.
+            </p>
+
+            <p>
+                Tal vez en ese momento no sabíamos todo lo que vendría,
+                pero ese día comenzó una historia que hoy significa muchísimo para mí.
+            </p>
+
+            <p>
+                Desde entonces hemos creado recuerdos, momentos,
+                risas y sentimientos que quiero seguir guardando contigo. ❤️
+            </p>
+
+            <button class="volver-historia" onclick="volverHistoria()">
+                💕 Volver a Nuestra historia
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- RAZONES -->
+
+    <section class="seccion" id="razones">
+
+        <div class="caja">
+
+            <h2>❤️ Las razones por las que me enamoré de ti</h2>
+
+            <div class="razones">
+
+                <div class="razon">
+                    ❤️ Porque contigo puedo ser yo misma.
+                </div>
+
+                <div class="razon">
+                    🥰 Porque tu forma de ser me encanta.
+                </div>
+
+                <div class="razon">
+                    😊 Porque sabes hacerme sonreír.
+                </div>
+
+                <div class="razon">
+                    💕 Porque haces que los momentos simples sean especiales.
+                </div>
+
+                <div class="razon">
+                    🫂 Porque tus abrazos se sienten como hogar.
+                </div>
+
+                <div class="razon">
+                    👀 Porque amo la forma en que me miras.
+                </div>
+
+                <div class="razon">
+                    💗 Porque contigo siento algo muy bonito.
+                </div>
+
+                <div class="razon">
+                    🌎 Porque quiero seguir compartiendo mi vida contigo.
+                </div>
+
+                <div class="razon">
+                    ✨ Porque cada día encuentro una razón nueva para quererte.
+                </div>
+
+                <div class="razon">
+                    💘 Porque simplemente eres tú.
+                </div>
+
+            </div>
+
+            <button class="volver-historia" onclick="volverHistoria()">
+                💕 Volver a Nuestra historia
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- MENSAJES -->
+
+    <section class="seccion" id="mensajes">
+
+        <div class="caja">
+
+            <h2>💌 Un mensaje para ti</h2>
+
+            <p>
+                Presiona el botón cada vez que quieras recibir un mensaje diferente. ❤️
+            </p>
+
+            <div id="mensaje">
+                💕 Presiona el botón para recibir un mensaje.
+            </div>
+
+            <button class="boton-mensaje" onclick="mostrarMensaje()">
+                💌 Dame un mensaje
+            </button>
+
+            <br><br>
+
+            <button class="volver-historia" onclick="volverHistoria()">
+                💕 Volver a Nuestra historia
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- COSAS QUE AMO DE NOSOTROS -->
+
+    <section class="seccion" id="nosotros">
+
+        <div class="caja">
+
+            <h2>🥰 Cosas que amo de nosotros</h2>
+
+            <div class="razones">
+
+                <div class="razon">
+                    ❤️ Nuestras conversaciones.
+                </div>
+
+                <div class="razon">
+                    😂 Las veces que nos hacemos reír.
+                </div>
+
+                <div class="razon">
+                    🫂 Nuestros abrazos.
+                </div>
+
+                <div class="razon">
+                    💕 La confianza que hemos construido.
+                </div>
+
+                <div class="razon">
+                    ✨ Los pequeños detalles.
+                </div>
+
+                <div class="razon">
+                    🥰 La forma en que podemos ser nosotros mismos.
+                </div>
+
+                <div class="razon">
+                    📸 Los recuerdos que hemos creado.
+                </div>
+
+                <div class="razon">
+                    🌙 Los momentos tranquilos juntos.
+                </div>
+
+                <div class="razon">
+                    💗 Y simplemente tenerte en mi vida.
+                </div>
+
+            </div>
+
+            <button class="volver-historia" onclick="volverHistoria()">
+                💕 Volver a Nuestra historia
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FUTURO -->
+
+    <section class="seccion" id="futuro">
+
+        <div class="caja">
+
+            <h2>👶 Un pedacito de nuestro futuro</h2>
+
+            <p>
+                Hay sueños que me gusta imaginar contigo. ❤️
+            </p>
+
+            <button class="sorpresa-boton" onclick="abrirHijos()">
+                👶 Ver nuestro futuro
+            </button>
+
+            <br><br>
+
+            <button class="volver-historia" onclick="volverHistoria()">
+                💕 Volver a Nuestra historia
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- CANCIÓN -->
+
+    <section class="seccion" id="cancion">
+
+        <div class="caja">
+
+            <h2>🎵 Tu cancion</h2>
+
+            <p>
+                Cada que escucho esta cancion pienso en ti. ❤️
+            </p>
+
+            <a
+                href="https://youtu.be/GrpJzHDb6qk?si=GeaIQg7aOXzGd9qM"
+                target="_blank"
+            >
+                🎧 Escuchar
+            </a>
+
+            <br><br>
+
+            <button class="volver-historia" onclick="volverHistoria()">
+                💕 Volver a Nuestra historia
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- MODAL CIELO -->
+
+<div class="modal" id="ventanaCielo">
+
+    <div class="modal-contenido">
+
+        <span class="cerrar" id="cerrarCielo">&times;</span>
+
+        <img
+            src="./Imagen/Cielo.jpg"
+            alt="Cielo"
+        >
+
+    </div>
+
+</div>
+
+
+<!-- MODAL HIJITOS -->
+
+<div class="modal" id="ventanaHijos">
+
+    <div class="modal-contenido">
+
+        <span class="cerrar" id="cerrarHijos">&times;</span>
+
+        <img
+            src="./Imagen/Hijitos.jpg"
+            alt="Nuestro futuro"
+        >
+
+        <p>
+            Si algún día la vida nos regala una familia,
+            me encantaría que fuera contigo. ❤️
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* CAMBIAR DE SECCIÓN */
+
+    function abrirSeccion(nombre) {
+
+        document.getElementById("menuHistoria").style.display = "none";
+
+        document.querySelectorAll(".seccion").forEach(function(seccion) {
+            seccion.classList.remove("activa");
+        });
+
+        document.getElementById(nombre).classList.add("activa");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+
+    /* VOLVER AL MENÚ DE NUESTRA HISTORIA */
+
+    function volverHistoria() {
+
+        document.querySelectorAll(".seccion").forEach(function(seccion) {
+            seccion.classList.remove("activa");
+        });
+
+        document.getElementById("menuHistoria").style.display = "flex";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+
+    /* CONTADOR */
+
+    const fechaInicio = new Date("2026-05-07T16:00:00");
+
+    function actualizarContador() {
+
+        const ahora = new Date();
+
+        let diferencia = ahora - fechaInicio;
+
+        if (diferencia < 0) {
+            diferencia = 0;
+        }
+
+        const segundosTotales = Math.floor(diferencia / 1000);
+
+        const dias = Math.floor(segundosTotales / 86400);
+
+        const horas =
+            Math.floor((segundosTotales % 86400) / 3600);
+
+        const minutos =
+            Math.floor((segundosTotales % 3600) / 60);
+
+        const segundos = segundosTotales % 60;
+
+        document.getElementById("dias").textContent = dias;
+
+        document.getElementById("horas").textContent = horas;
+
+        document.getElementById("minutos").textContent = minutos;
+
+        document.getElementById("segundos").textContent = segundos;
+    }
+
+    actualizarContador();
+
+    setInterval(actualizarContador, 1000);
+
+
+    /* MENSAJES ALEATORIOS */
+
+    const mensajes = [
+
+        "Te elegiría una y mil veces más. ❤️",
+
+        "Me haces sentir muy afortunada de tenerte en mi vida. 🥰",
+
+        "No sabes lo feliz que me hace saber que eres parte de mi vida. 💕",
+
+        "Contigo hasta los días normales se sienten especiales. ✨",
+
+        "Gracias por llegar a mi vida y hacerla mucho más bonita. ❤️",
+
+        "Eres una de las cosas más bonitas que me han pasado. 💗",
+
+        "Me encanta poder compartir mi vida contigo. 🫂",
+
+        "No necesito un día especial para recordarte cuánto te amo. ❤️",
+
+        "Cada recuerdo contigo tiene un lugar especial en mi corazón. 💕",
+
+        "Ojalá podamos seguir creando muchísimos recuerdos juntos. ✨",
+
+        "Me encanta la forma en que haces que todo se sienta más bonito. 🥰",
+
+        "Tu sonrisa tiene una forma muy especial de alegrarme el día. ❤️",
+
+        "Eres mi persona favorita. 💗",
+
+        "Gracias por cada momento, cada abrazo y cada sonrisa. 🫂",
+
+        "Me encanta tenerte para compartir mis alegrías y mis días difíciles. ❤️",
+
+        "Quiero seguir viviendo muchas historias contigo. 💕",
+
+        "Eres ese lugar al que siempre quiero volver. 🥰",
+
+        "No importa cuánto tiempo pase, siempre voy a valorar haberte conocido. ❤️",
+
+        "Contigo aprendí que el amor también está en los pequeños detalles. ✨",
+
+        "Me haces querer construir recuerdos que duren toda la vida. 💗",
+
+        "Qué bonito es poder decir que eres mi novio. 🥰",
+
+        "Me haces sentir querida de una manera muy especial. ❤️",
+
+        "Gracias por ser tú, simplemente tú. 💕",
+
+        "A veces te miro y pienso en lo afortunada que soy. 🥹❤️",
+
+        "Quiero que sepas que siempre tendrás un lugar enorme en mi corazón. 💗",
+
+        "Me encanta nuestra historia y todo lo que todavía nos falta por escribir. 📖❤️",
+
+        "Tú haces que mi mundo tenga un poquito más de color. 🌈",
+
+        "Cada día contigo es un recuerdo que quiero guardar. 💕",
+
+        "Me encanta cuando somos nosotros mismos sin importar nada más. 🥰",
+
+        "Gracias por formar parte de mis días. ❤️",
+
+        "No cambiaría por nada todo lo que hemos vivido juntos. 💗",
+
+        "Quiero seguir descubriendo nuevas razones para enamorarme de ti. ❤️",
+
+        "Eres una parte muy importante de mi felicidad. 🥰",
+
+        "Me encanta pensar en todo lo que todavía podemos vivir juntos. ✨",
+
+        "Si pudiera volver al 7 de mayo de 2026, te volvería a elegir. ❤️",
+
+        "Desde que llegaste, hay recuerdos que tienen tu nombre. 💕",
+
+        "Me encanta saber que tenemos nuestra propia historia. 📖",
+
+        "Gracias por hacerme sonreír incluso sin darte cuenta. 🥰",
+
+        "Quiero seguir coleccionando momentos contigo. ❤️",
+
+        "Eres mi pensamiento bonito del día. 💗",
+
+        "Qué bonito coincidir contigo en esta vida. ✨",
+
+        "Me haces sentir que encontré a alguien muy especial. ❤️",
+
+        "Siempre voy a guardar con cariño cada etapa de nuestra historia. 💕",
+
+        "No sé qué nos espera en el futuro, pero quiero descubrirlo contigo. 🥰",
+
+        "Te quiero más de lo que muchas veces sé explicar con palabras. ❤️",
+
+        "Eres una persona que quiero cuidar, querer y tener cerca. 💗",
+
+        "Gracias por cada pequeño detalle que hace nuestra historia especial. 🫂",
+
+        "Ojalá nunca dejemos de reír juntos. 😂❤️",
+
+        "Y si algún día dudas de cuánto te amo, vuelve a abrir esta página. 💌❤️",
+
+        "🚨 ALERTA: Esta página detectó que eres demasiado lindo. ❤️",
+
+        "Este mensaje no tiene información importante... solo quería recordarte que te amo. 😂❤️",
+
+        "Si estás leyendo esto, tienes que darme un besito. 😘",
+
+        "¿Sabías que alguien está pensando en ti justo ahora? Spoiler: soy yo. 🥰",
+
+        "Presiona el botón otra vez... tal vez aparezca un beso. 💋",
+
+        "Resultado del análisis: 100% mi persona favorita. ❤️",
+
+        "Advertencia: pensar demasiado en ti puede provocar sonrisas involuntarias. 😌💕",
+
+        "Te ganaste un abrazo. Ven a reclamarlo. 🫂❤️",
+
+        "Este mensaje es oficialmente una excusa para decirte: TE AMO. ❤️",
+
+        "Si llegaste hasta este mensaje, probablemente también deberías darme otro besito. 😘❤️"
+
+    ];
+
+
+    function mostrarMensaje() {
+
+        const aleatorio =
+            Math.floor(Math.random() * mensajes.length);
+
+        document.getElementById("mensaje").textContent =
+            mensajes[aleatorio];
+    }
+
+
+    /* MODAL CIELO */
+
+    const fotoCielo = document.getElementById("fotoCielo");
+
+    const ventanaCielo =
+        document.getElementById("ventanaCielo");
+
+    const cerrarCielo =
+        document.getElementById("cerrarCielo");
+
+    if (fotoCielo) {
+
+        fotoCielo.addEventListener("click", function() {
+
+            ventanaCielo.classList.add("activo");
+
+        });
+    }
+
+    cerrarCielo.addEventListener("click", function() {
+
+        ventanaCielo.classList.remove("activo");
+
+    });
+
+
+    /* MODAL HIJITOS */
+
+    const ventanaHijos =
+        document.getElementById("ventanaHijos");
+
+    const cerrarHijos =
+        document.getElementById("cerrarHijos");
+
+    function abrirHijos() {
+
+        ventanaHijos.classList.add("activo");
+
+    }
+
+    cerrarHijos.addEventListener("click", function() {
+
+        ventanaHijos.classList.remove("activo");
+
+    });
+
+
+    /* CERRAR MODALES AL HACER CLICK AFUERA */
+
+    window.addEventListener("click", function(event) {
+
+        if (event.target === ventanaCielo) {
+
+            ventanaCielo.classList.remove("activo");
+
+        }
+
+        if (event.target === ventanaHijos) {
+
+            ventanaHijos.classList.remove("activo");
+
+        }
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
+

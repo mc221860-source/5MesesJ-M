@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para el amor de mi vida ❤️</title>
+
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: #633b49;
+        min-height: 100vh;
+        overflow-x: hidden;
+        background:
+            radial-gradient(circle at 15% 20%, #ffdce8 0%, transparent 30%),
+            radial-gradient(circle at 85% 15%, #dff6ff 0%, transparent 30%),
+            radial-gradient(circle at 50% 90%, #fff0ca 0%, transparent 35%),
+            linear-gradient(135deg, #fff8fb, #f0fbff, #fff4f7);
+    }
+
+    /* CORAZONES FLOTANDO */
+    .corazon {
+        position: fixed;
+        bottom: -50px;
+        font-size: 25px;
+        opacity: 0.65;
+        pointer-events: none;
+        animation: subir 10s linear infinite;
+        z-index: 0;
+    }
+
+    .c1 {
+        left: 8%;
+        animation-delay: 0s;
+    }
+
+    .c2 {
+        left: 22%;
+        animation-delay: 2s;
+    }
+
+    .c3 {
+        left: 40%;
+        animation-delay: 4s;
+    }
+
+    .c4 {
+        left: 60%;
+        animation-delay: 1s;
+    }
+
+    .c5 {
+        left: 78%;
+        animation-delay: 3s;
+    }
+
+    .c6 {
+        left: 92%;
+        animation-delay: 5s;
+    }
+
+    @keyframes subir {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 0.7;
+        }
+
+        100% {
+            transform: translateY(-110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .contenedor {
+        position: relative;
+        z-index: 1;
+        width: 92%;
+        max-width: 1000px;
+        margin: auto;
+        padding: 45px 0;
+    }
+
+    /* PORTADA */
+    .portada {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.82);
+        border-radius: 35px;
+        padding: 45px 25px;
+        box-shadow: 0 15px 35px rgba(100, 50, 80, 0.12);
+        animation: aparecer 1s ease;
+    }
+
+    @keyframes aparecer {
+        from {
+            opacity: 0;
+            transform: translateY(25px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .corazon-grande {
+        font-size: 55px;
+        animation: latir 1.5s infinite;
+    }
+
+    @keyframes latir {
+        0%, 100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.15);
+        }
+    }
+
+    h1 {
+        font-size: 45px;
+        color: #b84f70;
+        margin: 10px 0;
+    }
+
+    .subtitulo {
+        font-size: 19px;
+        margin-bottom: 25px;
+    }
+
+    /* FOTO */
+    .foto-portada {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 8px solid white;
+        box-shadow: 0 10px 30px rgba(100, 50, 80, 0.2);
+        cursor: pointer;
+        transition: 0.4s;
+    }
+
+    .foto-portada:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(184, 79, 112, 0.3);
+    }
+
+    .nombres {
+        margin-top: 18px;
+        font-size: 23px;
+        font-weight: bold;
+        color: #a13e62;
+    }
+
+    .fecha {
+        margin-top: 8px;
+        font-size: 17px;
+    }
+
+    /* BOTONES PRINCIPALES */
+    .botones-principales {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 35px;
+    }
+
+    .boton-principal {
+        border: none;
+        padding: 17px 25px;
+        border-radius: 30px;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.3s;
+        display: inline-block;
+    }
+
+    .boton-principal:hover {
+        transform: translateY(-4px) scale(1.04);
+    }
+
+    .historia {
+        background: linear-gradient(135deg, #b84f70, #e985a0);
+    }
+
+    .cartas {
+        background: linear-gradient(135deg, #8b63c7, #c58de8);
+    }
+
+    .sorpresa {
+        background: linear-gradient(135deg, #ff9d5c, #ff6f91);
+    }
+
+    /* NUEVA CARTA SECRETA */
+    .secreta {
+        background: linear-gradient(135deg, #6c63c7, #9b8de8);
+    }
+
+    /* CARTAS */
+    #cartas {
+        display: none;
+        margin-top: 35px;
+        animation: aparecer 0.5s ease;
+    }
+
+    #cartas.activa {
+        display: block;
+    }
+
+    .titulo-cartas {
+        text-align: center;
+        color: #b84f70;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    .texto-cartas {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .cartas-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .carta {
+        display: block;
+        padding: 25px 18px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.9);
+        color: #633b49;
+        text-decoration: none;
+        box-shadow: 0 8px 20px rgba(100, 50, 80, 0.1);
+        transition: 0.3s;
+        text-align: center;
+    }
+
+    .carta:hover {
+        transform: translateY(-6px) rotate(1deg);
+        box-shadow: 0 14px 25px rgba(100, 50, 80, 0.18);
+    }
+
+    .carta span {
+        display: block;
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .carta strong {
+        display: block;
+        font-size: 18px;
+        color: #a13e62;
+        margin-bottom: 7px;
+    }
+
+    .carta small {
+        font-size: 14px;
+    }
+
+    .volver-portada {
+        display: block;
+        margin: 30px auto 0;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 30px;
+        background: #b84f70;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .volver-portada:hover {
+        transform: scale(1.05);
+    }
+
+    /* MODAL FOTO */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 20;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(40, 20, 30, 0.78);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .modal.activo {
+        display: flex;
+    }
+
+    .modal-contenido {
+        position: relative;
+        background: white;
+        padding: 20px;
+        border-radius: 25px;
+        max-width: 700px;
+        width: 95%;
+        text-align: center;
+    }
+
+    .foto-grande {
+        max-width: 100%;
+        max-height: 75vh;
+        object-fit: contain;
+        border-radius: 18px;
+    }
+
+    .cerrar {
+        position: absolute;
+        top: 5px;
+        right: 15px;
+        font-size: 32px;
+        color: #b84f70;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 650px) {
+        h1 {
+            font-size: 34px;
+        }
+
+        .foto-portada {
+            width: 240px;
+            height: 240px;
+        }
+
+        .cartas-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .botones-principales {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .boton-principal {
+            width: 90%;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- CORAZONES -->
+<div class="corazon c1">❤️</div>
+<div class="corazon c2">💕</div>
+<div class="corazon c3">💗</div>
+<div class="corazon c4">💖</div>
+<div class="corazon c5">💞</div>
+<div class="corazon c6">❤️</div>
+
+<div class="contenedor">
+
+    <!-- PORTADA -->
+    <section class="portada" id="portada">
+
+        <div class="corazon-grande">
+            ❤️
+        </div>
+
+        <h1>
+            Para el amor de mi vida
+        </h1>
+
+        <p class="subtitulo">
+            Un pequeño lugar hecho especialmente para ti. 💕
+        </p>
+
+        <img
+            src="./Imagen/Nosotros.jpg"
+            alt="Nosotros"
+            class="foto-portada"
+            id="fotoNosotros"
+        >
+
+        <div class="nombres">
+            ✨ M & J ✨❤️
+        </div>
+
+        <div class="fecha">
+            ❤️ 7 de mayo de 2026 ❤️
+        </div>
+
+        <!-- BOTONES -->
+        <div class="botones-principales">
+
+            <a
+                href="historia.html"
+                class="boton-principal historia"
+            >
+                📖 Nuestra historia
+            </a>
+
+            <button
+                class="boton-principal cartas"
+                onclick="mostrarCartas()"
+            >
+                💌 Ábreme cuando...
+            </button>
+
+            <a
+                href="sorpresa.html"
+                class="boton-principal sorpresa"
+            >
+                🎁 Hay algo para ti...
+            </a>
+
+            <!-- CARTA SECRETA -->
+            <a
+                href="carta.html"
+                class="boton-principal secreta"
+            >
+                💌 Carta secreta 🔒
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ÁBREME CUANDO -->
+    <section id="cartas">
+
+        <h2 class="titulo-cartas">
+            💌 Ábreme cuando...
+        </h2>
+
+        <p class="texto-cartas">
+            Elige una carta dependiendo de cómo te sientas. ❤️
+        </p>
+
+        <div class="cartas-grid">
+
+            <a href="feliz.html" class="carta">
+                <span>😊</span>
+                <strong>Estés feliz</strong>
+                <small>Quiero celebrar tu felicidad contigo.</small>
+            </a>
+
+            <a href="triste.html" class="carta">
+                <span>🥺</span>
+                <strong>Estés triste</strong>
+                <small>Para recordarte que no estás solo.</small>
+            </a>
+
+            <a href="enojado.html" class="carta">
+                <span>😤</span>
+                <strong>Estés enojado</strong>
+                <small>Para ayudarte a cambiar un poquito ese humor.</small>
+            </a>
+
+            <a href="extrano.html" class="carta">
+                <span>💭</span>
+                <strong>Me extrañes</strong>
+                <small>Para sentirme un poquito más cerca de ti.</small>
+            </a>
+
+            <a href="solo.html" class="carta">
+                <span>🫂</span>
+                <strong>Te sientas solo</strong>
+                <small>Recuerda que siempre tienes mi cariño.</small>
+            </a>
+
+            <a href="amor.html" class="carta">
+                <span>❤️</span>
+                <strong>Necesites amor</strong>
+                <small>Una dosis extra de amor para ti.</small>
+            </a>
+
+            <a href="dificil.html" class="carta">
+                <span>🌧️</span>
+                <strong>Tengas un día difícil</strong>
+                <small>Para recordarte que puedes con todo.</small>
+            </a>
+
+            <a href="dormir.html" class="carta">
+                <span>🌙</span>
+                <strong>No puedas dormir</strong>
+                <small>Un pequeño mensaje antes de cerrar los ojos.</small>
+            </a>
+
+            <a href="pienso.html" class="carta">
+                <span>💗</span>
+                <strong>Pienses en mí</strong>
+                <small>Porque probablemente yo también pienso en ti.</small>
+            </a>
+
+            <a href="abrazo.html" class="carta">
+                <span>🫂</span>
+                <strong>Necesites un abrazo</strong>
+                <small>Imagina que estoy ahí abrazándote.</small>
+            </a>
+
+        </div>
+
+        <button
+            class="volver-portada"
+            onclick="volverInicio()"
+        >
+            🏠 Volver al inicio
+        </button>
+
+    </section>
+
+</div>
+
+<!-- MODAL DE LA FOTO -->
+<div class="modal" id="ventanaFoto">
+
+    <div class="modal-contenido">
+
+        <span class="cerrar" id="cerrarFoto">
+            &times;
+        </span>
+
+        <img
+            src="./Imagen/Nosotros.jpg"
+            alt="Nosotros"
+            class="foto-grande"
+        >
+
+    </div>
+
+</div>
+
+<script>
+
+    /* MOSTRAR CARTAS */
+    function mostrarCartas() {
+
+        document.getElementById("portada").style.display = "none";
+
+        document
+            .getElementById("cartas")
+            .classList.add("activa");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    /* VOLVER A LA PORTADA */
+    function volverInicio() {
+
+        document
+            .getElementById("cartas")
+            .classList.remove("activa");
+
+        document.getElementById("portada").style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    /* ABRIR CARTAS DESDE EL ENLACE */
+    window.addEventListener("load", function() {
+
+        if (window.location.hash === "#cartas") {
+            mostrarCartas();
+        }
+
+    });
+
+    /* MODAL FOTO */
+    const fotoNosotros =
+        document.getElementById("fotoNosotros");
+
+    const ventanaFoto =
+        document.getElementById("ventanaFoto");
+
+    const cerrarFoto =
+        document.getElementById("cerrarFoto");
+
+    fotoNosotros.addEventListener("click", function() {
+        ventanaFoto.classList.add("activo");
+    });
+
+    cerrarFoto.addEventListener("click", function() {
+        ventanaFoto.classList.remove("activo");
+    });
+
+    window.addEventListener("click", function(event) {
+
+        if (event.target === ventanaFoto) {
+            ventanaFoto.classList.remove("activo");
+        }
+
+    });
+
+</script>
+
+
+</body>
+</html>
